@@ -6,10 +6,10 @@ const walkers = getWalkers()
 
 
 // Function whose responsibility is to find the walker assigned to a pet
-const findWalker = (pet, allWalker) => {
+const findPetWalker = (pet, allWalker) => {
     let petWalker = null
 
-    for (const walker of walkers) {
+    for (const walker of allWalkers) {
         if (walker.id === pet.walkerId) {
             petWalker = walker
         }
@@ -24,7 +24,7 @@ export const Assignments = () => {
 
     for (const currentPet of pets) {
         const currentPetWalker = findWalker(currentPet, walkers)
-        assignmentHTML = `
+        assignmentHTML += `
             <li>
                 ${currentPet.name} is being walked by
                 ${currentPetWalker.name} in ${currentPetWalker.city}
