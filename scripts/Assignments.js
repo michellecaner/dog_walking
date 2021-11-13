@@ -9,7 +9,7 @@ const walkers = getWalkers()
 const findPetWalker = (pet, allWalker) => {
     let petWalker = null
 
-    for (const walker of allWalkers) {
+    for (const walker of walkers) {
         if (walker.id === pet.walkerId) {
             petWalker = walker
         }
@@ -23,7 +23,7 @@ export const Assignments = () => {
     assignmentHTML = "<ul>"
 
     for (const currentPet of pets) {
-        const currentPetWalker = findWalker(currentPet, walkers)
+        const currentPetWalker = findPetWalker(currentPet, walkers)
         assignmentHTML += `
             <li>
                 ${currentPet.name} is being walked by
